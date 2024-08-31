@@ -1,0 +1,86 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+a {
+    display: flex;
+    gap: 1.5px;
+    flex-direction: column;
+    color: rgb(27, 230, 67);
+}
+
+header a {
+    transition: background-color 0.2s ease-in;
+    border-radius: 5px;
+    padding: 10px;
+    color: inherit;
+}
+
+header a:hover {
+    background-color: rgba(27, 196, 230, 0.201);
+    color: rgb(27, 230, 67);
+}
+
+header a.active {
+    color: rgb(27, 230, 67);
+}
+
+.theme-toggler {
+    box-sizing: content-box;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../public/dark_light.svg);
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: white;
+}
+
+hr {
+    opacity: 0.5;
+}
+
+footer li {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+footer li::after {
+    content: "";
+    width: 110%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.685);
+}
+
+html.dark footer li::after {
+    background-color: white;
+
+}
+
+li::before {
+    display: inline-block;
+    content: " ";
+    margin-right: 10px;
+    border-radius: 50%;
+    width: 10px;
+    aspect-ratio: 1/1;
+    border: 1px solid  rgb(27, 230, 67);;
+}
+
+
+footer li::before, header li::before { 
+    display: none;
+}
+
+.green {
+    color: rgb(27, 230, 67);
+}
