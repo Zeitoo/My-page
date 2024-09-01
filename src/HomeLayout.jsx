@@ -59,9 +59,10 @@ export default function HomeLayout() {
             </div>
 
             <footer className="text-sm">
+                <hr className="sm:hidden" />
                 <div>
                     <address>
-                        <ul className="flex gap-10">
+                        <ul className="flex max-sm:flex-col max-sm:my-5 max-sm:items-start max-sm:gap-5 gap-10">
                             <li>
                                 <a
                                     href="https://www.instagram.com/tech__wrld/"

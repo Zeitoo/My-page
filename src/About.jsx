@@ -3,13 +3,13 @@ export default function About() {
     return (
         <main>
           <article>
-            <h1 className="font-bold my-10 text-[2em]">/About</h1>
+            <h1 className="font-bold my-10 text-[2em]"><span className="green">/</span>Sobre mim</h1>
             <div className="text-content">
               <p className="block my-5">
                 Olá, meu nome é José Zeito, também conhecido como Jozeito. Nos últimos dois anos, tenho me dedicado ao estudo do mundo da Engenharia de Software e programação, explorando desde conceitos básicos de Python até tópicos avançados como:
               </p>
       
-              <ul className="mx-10 my-5 flex flex-col gap-2">
+              <ul className="ms-10 my-5 flex flex-col gap-2">
                 <li>
                   Criação de páginas usando <span className="green">HTML</span>.
                 </li>
