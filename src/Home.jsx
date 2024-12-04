@@ -1,6 +1,7 @@
 import profileImg from "/profile.jpg";
 
 export default function Home() {
+
     return (
         <main>
             <article role="article">
@@ -25,7 +26,7 @@ export default function Home() {
                         </div>
                     </div>
                     <img
-                        className="w-[120px] rounded-lg"
+                        className="w-[150px] foto rounded-lg"
                         src={profileImg}
                         alt="A picture of myself"
                     />

@@ -6,7 +6,7 @@
 
 body {
     min-height: 100vh;
-    margin: 0 auto;
+    margin: -50px auto;
     overflow-x: hidden;
 }
 
@@ -67,9 +67,18 @@ footer li::after {
     }
 }
 
+@media screen and (max-width: 430px) {
+    .foto {
+        display: none;
+    }
+}
+
+.foto {
+    user-select: none;
+}
+
 html.dark footer li::after {
     background-color: white;
-
 }
 
 li::before {
@@ -79,11 +88,11 @@ li::before {
     border-radius: 50%;
     width: 10px;
     aspect-ratio: 1/1;
-    border: 1px solid  rgb(27, 230, 67);;
+    border: 1px solid rgb(27, 230, 67);
 }
 
-
-footer li::before, header li::before { 
+footer li::before,
+header li::before {
     display: none;
 }
 

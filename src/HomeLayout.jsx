@@ -1,6 +1,7 @@
 import { Outlet, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import themeIcon from "../public/dark_light.svg";
+import ErrorBoundry from "./ErrorBoundry";
 
 export default function HomeLayout() {
     useEffect(() => {
@@ -21,76 +22,80 @@ export default function HomeLayout() {
         }
     };
 
-    return (
-        <>
-            <header className="my-10 flex items-center justify-between">
-                <nav role="navigation" aria-label="Main Navigation">
-                    <ul className="flex gap-2 text-sm font-semibold">
-                        <li>
-                            <NavLink tabIndex={0} to="./">
-                                Início
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink tabIndex={0} to="./about">
-                                Sobre
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink tabIndex={0} to="./projects">
-                                Projetos
-                            </NavLink>
-                        </li>
-                    </ul>
-                </nav>
-
-                <button
-                    tabIndex={0}
-                    onClick={() => {
-                        themeSwitch();
-                    }}
-                    className="theme-toggler w-[25px] dark:invert transition-[filter] duration-1000"
-                    aria-label="Switch Theme"
-                ></button>
-            </header>
-
-            <div className="content my-10">
-                <Outlet />
-            </div>
-
-            <footer className="text-sm">
-                <hr className="sm:hidden" />
-                <div>
-                    <address>
-                        <ul className="flex max-sm:flex-col max-sm:my-5 max-sm:items-start max-sm:gap-5 gap-10">
+    try {
+        return (
+            <>
+                <header className="my-10 flex items-center justify-between">
+                    <nav role="navigation" aria-label="Main Navigation">
+                        <ul className="flex gap-2 text-sm font-semibold">
                             <li>
-                                <a
-                                    href="https://www.instagram.com/tech__wrld/"
-                                    aria-label="Instagram"
-                                >
-                                    Instagram
-                                </a>
+                                <NavLink tabIndex={0} to="./">
+                                    Início
+                                </NavLink>
                             </li>
                             <li>
-                                <a
-                                    href="https://github.com/Zeitoo"
-                                    aria-label="Github"
-                                >
-                                    Github
-                                </a>
+                                <NavLink tabIndex={0} to="./about">
+                                    Sobre
+                                </NavLink>
                             </li>
                             <li>
-                                <a
-                                    href="mailto:josezeito@outlook.com"
-                                    aria-label="Email Jose"
-                                >
-                                    josezeito@outlook.com
-                                </a>
+                                <NavLink tabIndex={0} to="./projects">
+                                    Projetos
+                                </NavLink>
                             </li>
                         </ul>
-                    </address>
+                    </nav>
+
+                    <button
+                        tabIndex={0}
+                        onClick={() => {
+                            themeSwitch();
+                        }}
+                        className="theme-toggler w-[25px] dark:invert transition-[filter] duration-1000"
+                        aria-label="Switch Theme"
+                    ></button>
+                </header>
+
+                <div className="content my-10">
+                    <Outlet />
                 </div>
-            </footer>
-        </>
-    );
+
+                {/* <footer className="text-sm">
+                    <hr className="sm:hidden" />
+                    <div>
+                        <address>
+                            <ul className="flex max-sm:flex-col max-sm:my-5 max-sm:items-start max-sm:gap-5 gap-10">
+                                <li>
+                                    <a
+                                        href="https://www.instagram.com/tech__wrld/"
+                                        aria-label="Instagram"
+                                    >
+                                        Instagram
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://github.com/Zeitoo"
+                                        aria-label="Github"
+                                    >
+                                        Github
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="mailto:josezeito@outlook.com"
+                                        aria-label="Email Jose"
+                                    >
+                                        josezeito@outlook.com
+                                    </a>
+                                </li>
+                            </ul>
+                        </address>
+                    </div>
+                </footer> */}
+            </>
+        );
+    } catch {
+        return <ErrorBoundry />;
+    }
 }
