@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+:root {
+    --green: rgb(27, 230, 67);
+}
+
+html {
+    scrollbar-width: thin;
+}
+
 body {
     min-height: 100vh;
     margin: -50px auto;
@@ -67,12 +75,6 @@ footer li::after {
     }
 }
 
-@media screen and (max-width: 430px) {
-    .foto {
-        display: none;
-    }
-}
-
 .foto {
     user-select: none;
 }
@@ -88,7 +90,7 @@ li::before {
     border-radius: 50%;
     width: 10px;
     aspect-ratio: 1/1;
-    border: 1px solid rgb(27, 230, 67);
+    border: 1px solid var(--green);
 }
 
 footer li::before,
@@ -97,5 +99,29 @@ header li::before {
 }
 
 .green {
-    color: rgb(27, 230, 67);
+    color:var(--green);
+}
+
+.slide-in {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: var(--green);
+    transform-origin: center;
+}
+
+.slide-out {
+    position: fixed;
+    translate: -50% -50%;
+    top: 50%;
+    border-radius: 50%;
+    left: 50%;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: var(--green);
+    transform-origin: center;
 }

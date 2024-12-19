@@ -1,6 +1,8 @@
-export default function About() {
+import Transition from "./Transition";
+
+function About() {
     return (
-        <main>
+        <main className="pb-5">
             <article>
                 <h1 className="font-bold my-10 text-[2em]">
                     <span className="green">/</span>Sobre mim
@@ -117,3 +119,5 @@ export default function About() {
         </main>
     );
 }
+
+export default Transition(About)

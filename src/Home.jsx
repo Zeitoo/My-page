@@ -1,20 +1,27 @@
 import profileImg from "/profile.jpg";
+import Transition from "./Transition";
 
-export default function Home() {
-
+function Home() {
     return (
-        <main>
+        <main className="pb-5">
             <article role="article">
                 <div className="flex gap-10 items-end justify-between">
                     <div className="flex flex-col gap-6">
                         <div>
-                            <h1 className="font-bold my-5 text-[2em]">
-                                JoZeito <span className="green">.</span>dev
-                            </h1>
+                            <img
+                                className="w-[150px] min-[500px]:hidden foto  rounded-full"
+                                src={profileImg}
+                                alt="A picture of myself"
+                            />
+                            <div>
+                                <h1 className="font-bold my-5 text-[2em]">
+                                    JoZeito <span className="green">.</span>dev
+                                </h1>
 
-                            <h2 className="font-bold green text-[1em]">
-                                Front-end Engineer.
-                            </h2>
+                                <h2 className="font-bold green text-[1em]">
+                                    Front-end Engineer.
+                                </h2>
+                            </div>
                         </div>
                         <div>
                             <p className="block">
@@ -26,7 +33,7 @@ export default function Home() {
                         </div>
                     </div>
                     <img
-                        className="w-[150px] foto rounded-lg"
+                        className="w-[150px] max-[499px]:hidden foto rounded-lg"
                         src={profileImg}
                         alt="A picture of myself"
                     />
@@ -57,3 +64,5 @@ export default function Home() {
         </main>
     );
 }
+
+export default Transition(Home)
