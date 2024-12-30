@@ -25,6 +25,10 @@ a {
     color: rgb(27, 230, 67);
 }
 
+header li::before {
+    display: none;
+}
+
 header a {
     transition: background-color 0.2s ease-in;
     border-radius: 5px;
@@ -55,20 +59,6 @@ hr {
     opacity: 0.5;
 }
 
-footer li {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 5px;
-}
-
-footer li::after {
-    content: "";
-    width: 110%;
-    height: 1px;
-    background-color: rgba(0, 0, 0, 0.685);
-}
-
 @media screen and (max-width: 640px) {
     footer li::after {
         display: none;
@@ -93,43 +83,29 @@ li::before {
     border: 1px solid var(--green);
 }
 
-footer li::before,
-header li::before {
-    display: none;
-}
-
 .green {
-    color:var(--green);
+    color: var(--green);
 }
 
-.slide-in {
-    pointer-events: none;
-    touch-action: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    border-radius: 50%;
-    translate: -50% -50%;
-    width: 100%;
-    aspect-ratio: 1/1;
-    background-color: black;
-    transform-origin: center;
-    z-index: 100;
-}
-
+.slide-in,
 .slide-out {
+    --bg: white;
     pointer-events: none;
     touch-action: none;
     position: fixed;
-    z-index: 100;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
-    border-radius: 50%;
-    width: 100%;
-    aspect-ratio: 1/1;
-    background-color: #000000;
-    transform-origin: center;
+    width: 100vw;
+    height: 100vh;
+    scale: 1.5;
+    background-color: var(--bg);
+    z-index: 100;
+}
+
+html.dark .slide-in,
+html.dark .slide-out {
+    --bg: black;
 }
 
 .content main {
