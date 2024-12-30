@@ -1,5 +1,5 @@
 import { NavLink, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import Home from "./Home";
 import NotFound from "./NotFound";
@@ -7,16 +7,15 @@ import About from "./About";
 import Projects from "./Projects";
 
 import { AnimatePresence } from "framer-motion";
-
+import ParticlesComponent from "./ParticlesComponent";
+import ParticlesComponentLight from "./ParticlesComponentLight";
 export default function HomeLayout() {
-
     const location = useLocation();
     useEffect(() => {
         if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
             document.documentElement.classList.add("dark");
             localStorage.setItem("theme", "dark");
         }
-
     }, []);
 
     const themeSwitch = () => {
@@ -24,14 +23,21 @@ export default function HomeLayout() {
         if (theme === "dark") {
             document.documentElement.classList.remove("dark");
             localStorage.setItem("theme", "light");
+            SetDarkMode(!darkMode);
         } else {
             document.documentElement.classList.add("dark");
             localStorage.setItem("theme", "dark");
+            SetDarkMode(!darkMode);
         }
     };
 
+    const [darkMode, SetDarkMode] = useState(
+        localStorage.getItem("theme") === "dark"
+    );
+
     return (
         <>
+            
             <header className="my-10 flex items-center justify-between">
                 <nav role="navigation" aria-label="Main Navigation">
                     <ul className="flex gap-2 text-sm font-semibold">
@@ -63,8 +69,14 @@ export default function HomeLayout() {
                 ></button>
             </header>
 
-            <div className="content my-10">
+            <div className="content my-10 ">
                 <AnimatePresence mode="wait">
+                {darkMode ? (
+                <ParticlesComponent id="particles" />
+            ) : (
+                <ParticlesComponentLight id="particles" />
+            )}
+
                     <Routes location={location} key={location.pathname}>
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About />} />

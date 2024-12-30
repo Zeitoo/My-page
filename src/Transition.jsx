@@ -5,18 +5,18 @@ function Transition(OgComponent) {
             <OgComponent />
                 <motion.div
                     className="slide-in slides"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 0 }}
-                    exit={{ scale: 3 }}
+                    initial={{ opacity: 1 }}
+                    animate={{ opacity: 0}}
+                    exit={{ opacity: 0 }}
                     transition={{ duration: 0.5, ease: [0.2, 0.4, 0.1, 0.3] }}
                 />
 
                 <motion.div
                     className="slide-out slides"
-                    initial={{ scale: 3 }}
-                    animate={{ scale: 0 }}
-                    exit={{ scale: 0, opacity: 0 }}
-                    transition={{ duration: 0.4, ease: [ 0.3, 0.4, 0.1, 0.3] }}
+                    initial={{ opacity: 1}}
+                    animate={{ opacity: 0 }}
+                    exit={{ opacity: 1 }}
+                    transition={{ duration: 0.5, ease: [ 0.3, 0.4, 0.1, 0.3] }}
                 />
         </>
     );

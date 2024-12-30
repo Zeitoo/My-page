@@ -103,6 +103,8 @@ header li::before {
 }
 
 .slide-in {
+    pointer-events: none;
+    touch-action: none;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -110,18 +112,27 @@ header li::before {
     translate: -50% -50%;
     width: 100%;
     aspect-ratio: 1/1;
-    background-color: var(--green);
+    background-color: black;
     transform-origin: center;
+    z-index: 100;
 }
 
 .slide-out {
+    pointer-events: none;
+    touch-action: none;
     position: fixed;
-    translate: -50% -50%;
+    z-index: 100;
     top: 50%;
-    border-radius: 50%;
     left: 50%;
+    translate: -50% -50%;
+    border-radius: 50%;
     width: 100%;
     aspect-ratio: 1/1;
-    background-color: var(--green);
+    background-color: #000000;
     transform-origin: center;
+}
+
+.content main {
+    position: relative;
+    z-index: 4;
 }
